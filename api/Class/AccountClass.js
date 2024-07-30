@@ -64,12 +64,13 @@ class ManagerAccount{
 
     async createAccount(){
     try {
-        await AccountModel.create({
+        const account = await AccountModel.create({
             userId:this.userId,
             accountNumber:this.accountNumber,
             accountType:this.accountType,
             balance:this.balance
-        })        
+        })  
+        return account      
     } catch (error) {
             console.error(`Error al crear cuenta:${error}`);
        }
